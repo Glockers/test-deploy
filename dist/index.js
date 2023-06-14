@@ -25,6 +25,9 @@ passport_1.default.use('access', passport_config_1.accessJWTStrategy);
 app.get('/protected', authenticateAccess_middleware_1.authenticateAccess, (req, res) => {
     res.json({ message: 'Защищенный маршрут' });
 });
+app.get('/', (_req, res) => {
+    return res.send('Express Typescript on Vercel');
+});
 app.use('/api/v1', routes_1.default);
 app.listen(PORT, () => {
     logger.info(`[server]: Server is running at ${process.env.API_HOST}:${PORT}`);

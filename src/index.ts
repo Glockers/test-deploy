@@ -25,6 +25,10 @@ app.get('/protected', authenticateAccess, (req: any, res: any) => {
   res.json({ message: 'Защищенный маршрут' });
 });
 
+app.get('/', (_req: any, res: any) => {
+  return res.send('Express Typescript on Vercel');
+});
+
 app.use('/api/v1', routes);
 
 app.listen(PORT, () => {
