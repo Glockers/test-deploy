@@ -41,6 +41,7 @@ exports.sequelizeConnection = new sequelize_1.Sequelize(process.env.POSTGRES_URL
 function checkDatabaseConnection() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
+            yield exports.sequelizeConnection.sync();
             yield exports.sequelizeConnection.authenticate();
             console.log('Connection has been established successfully.');
         }

@@ -4,9 +4,9 @@ import * as pg from 'pg';
 export const sequelizeConnection = new Sequelize(process.env.POSTGRES_URL, {
   dialectModule: pg
 });
-
 export async function checkDatabaseConnection() {
   try {
+    await sequelizeConnection.sync();
     await sequelizeConnection.authenticate();
     console.log('Connection has been established successfully.');
   } catch (error) {
