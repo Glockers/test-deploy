@@ -1,8 +1,10 @@
 import { Router } from 'express';
-// import authRouter from './auth.router';
+import meetupRouter from './meetup.router';
+import authRouter from './auth.router';
 
 const router = Router();
 
-// router.use(authRouter);
+router.use('/meetup', meetupRouter);
+router.use(authRouter);
 
 export default router;
