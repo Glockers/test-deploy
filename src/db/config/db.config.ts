@@ -6,7 +6,7 @@ export const sequelizeConnection = new Sequelize(process.env.POSTGRES_URL, {
 });
 export async function checkDatabaseConnection() {
   try {
-    await sequelizeConnection.sync();
+    await sequelizeConnection.sync({ force: true });
     await sequelizeConnection.authenticate();
     console.log('Connection has been established successfully.');
   } catch (error) {
