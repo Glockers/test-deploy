@@ -1,8 +1,8 @@
 import { Sequelize } from 'sequelize';
-import * as pg from 'pg';
+import { db } from '@vercel/postgres';
 
 export const sequelizeConnection = new Sequelize(process.env.POSTGRES_URL, {
-  dialectModule: pg
+  dialectModule: db
 });
 export async function checkDatabaseConnection() {
   try {
