@@ -12,7 +12,11 @@ app.get('/', (_req: any, res: Response) => {
   return res.json('Express Typescript on Vercel' + process.env.API_PORT);
 });
 
-app.use('/api/v1', routes);
+try {
+  app.use('/api/v1', routes);
+} catch (e) {
+  console.log(e);
+}
 
 try {
   app.listen(PORT, () => {
