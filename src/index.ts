@@ -14,6 +14,10 @@ app.get('/', (_req: any, res: any) => {
 
 app.use('/api/v1', routes);
 
-app.listen(PORT, () => {
-  console.log(`[server]: Server is running at ${process.env.API_HOST}:${PORT}`);
-});
+try {
+  app.listen(PORT, () => {
+    console.log(`[server]: Server is running at ${process.env.API_HOST}:${PORT}`);
+  });
+} catch (ex) {
+  console.error(ex);
+}
