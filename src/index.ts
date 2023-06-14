@@ -1,6 +1,7 @@
 import express, { Application, Response } from 'express';
 import 'dotenv/config';
 import bodyParser from 'body-parser';
+import routes from './api/routes';
 
 const app: Application = express();
 const PORT = process.env.API_PORT || 5000;
@@ -11,7 +12,7 @@ app.get('/', (_req: any, res: Response) => {
   return res.json('Express Typescript on Vercel' + process.env.API_PORT);
 });
 
-// app.use('/api/v1', routes);
+app.use('/api/v1', routes);
 
 try {
   app.listen(PORT, () => {
