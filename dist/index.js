@@ -15,7 +15,12 @@ app.get('/', (_req, res) => {
     return res.send('Express Typescript on Vercel');
 });
 app.use('/api/v1', routes_1.default);
-app.listen(PORT, () => {
-    console.log(`[server]: Server is running at ${process.env.API_HOST}:${PORT}`);
-});
+try {
+    app.listen(PORT, () => {
+        console.log(`[server]: Server is running at ${process.env.API_HOST}:${PORT}`);
+    });
+}
+catch (ex) {
+    console.error(ex);
+}
 //# sourceMappingURL=index.js.map
