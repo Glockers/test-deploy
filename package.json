@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "rimraf dist && tsc",
-    "prestart": "npm run build",
+    "prestart": "tsc --project tsconfig.json",
     "start": "node .",
     "server:watch": "ts-node-dev --respawn --transpile-only src/index.ts",
     "prebuild": "npm run lint",
