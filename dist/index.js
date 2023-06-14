@@ -11,19 +11,11 @@ const app = (0, express_1.default)();
 const PORT = process.env.API_PORT || 5000;
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: true }));
-app.get('/', (_req, res) => {
-    return res.json('Express Typescript on Vercel' + process.env.API_PORT);
-});
 app.use('/api/v1', routes_1.default);
 app.get('/', (req, res) => {
     res.send('test yraaaa');
 });
-try {
-    app.listen(PORT, () => {
-        console.log(`[server]: Server is running at ${process.env.API_HOST}:${PORT}`);
-    });
-}
-catch (ex) {
-    console.error(ex);
-}
+app.listen(PORT, () => {
+    console.log(`[server]: Server is running at ${process.env.API_HOST}:${PORT}`);
+});
 //# sourceMappingURL=index.js.map
