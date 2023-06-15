@@ -2,7 +2,9 @@ import express, { Application } from 'express';
 import 'dotenv/config';
 import bodyParser from 'body-parser';
 import routes from './api/routes';
+import dbInit from './db/init';
 
+dbInit();
 const app: Application = express();
 const PORT = process.env.API_PORT || 5000;
 app.use(bodyParser.json());

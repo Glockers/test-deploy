@@ -1,12 +1,12 @@
 import { Sequelize } from 'sequelize';
-import { db } from '@vercel/postgres';
+import * as pg from 'pg';
 
 export const sequelizeConnection = new Sequelize(process.env.POSTGRES_URL, {
-  dialectModule: db
+  dialectModule: pg
 });
+
 export async function checkDatabaseConnection() {
   try {
-    await sequelizeConnection.sync({ force: true });
     await sequelizeConnection.authenticate();
     console.log('Connection has been established successfully.');
   } catch (error) {

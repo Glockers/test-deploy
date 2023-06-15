@@ -7,6 +7,8 @@ const express_1 = __importDefault(require("express"));
 require("dotenv/config");
 const body_parser_1 = __importDefault(require("body-parser"));
 const routes_1 = __importDefault(require("./api/routes"));
+const init_1 = __importDefault(require("./db/init"));
+(0, init_1.default)();
 const app = (0, express_1.default)();
 const PORT = process.env.API_PORT || 5000;
 app.use(body_parser_1.default.json());
